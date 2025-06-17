@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>图片去水印工具</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>图片去水印工具</h2>
+        <div class="mask-select-row">
+            <div class="mask-select">
+                <h3>选择蒙版类型</h3>
+                <select id="mask-select-dropdown" style="width:100%;padding:8px;font-size:16px;"></select>
+            </div>
+            <div class="mask-thumb-preview">
+                <img id="mask-thumb-img" src="/static/mask_vertical.png" alt="蒙版预览" style="max-width:80px;max-height:80px;display:block;margin:0 auto;">
+            </div>
+        </div>
+        <div class="upload-section">
+            <h3>处理模式</h3>
+            <select id="mode-select" style="width:100%;padding:8px;font-size:16px;">
+                <option value="single">单组图片</option>
+                <option value="batch">多组图片（文件夹）</option>
+            </select>
+            <div id="single-upload">
+                <label>高画质带水印图片<br><input type="file" id="high-img" accept="image/*" style="width:100%"></label><br>
+                <label>低画质无水印图片<br><input type="file" id="low-img" accept="image/*" style="width:100%"></label>
+            </div>
+            <div id="batch-upload" style="display:none;">
+                <label>高画质文件夹<br>
+                    <input type="file" id="high-folder" webkitdirectory directory multiple>
+                </label><br>
+                <label>低画质文件夹<br>
+                    <input type="file" id="low-folder" webkitdirectory directory multiple>
+                </label>
+            </div>
+        </div>
+        <button id="process-btn" class="full-btn">开始处理</button>
+        <div id="result-section">
+            <!-- 处理结果展示区 -->
+        </div>
+    </div>
+    <button id="edit-mask-btn" class="edit-mask-btn">添加或调整蒙版</button>
+    <script src="/static/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</body>
+</html> 

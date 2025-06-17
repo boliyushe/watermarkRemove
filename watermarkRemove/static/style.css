@@ -1,0 +1,183 @@
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: 24px auto 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 18px 4vw 18px 4vw;
+    box-sizing: border-box;
+}
+h2 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 18px;
+    font-size: 1.5em;
+}
+.mask-select, .upload-section {
+    margin-bottom: 18px;
+}
+select, input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border: 1px solid #dcdde1;
+    background: #f1f2f6;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+.full-btn, button#process-btn {
+    width: 100%;
+    background: #0097e6;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 0;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    transition: background 0.2s;
+}
+.full-btn:hover, button#process-btn:hover {
+    background: #005fa3;
+}
+#result-section {
+    margin-top: 18px;
+    text-align: center;
+}
+.edit-mask-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    background: #44bd32;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    cursor: pointer;
+    z-index: 100;
+    transition: background 0.2s;
+}
+.edit-mask-btn:hover {
+    background: #218c1e;
+}
+.mask-maker-section {
+    margin-top: 10px;
+    text-align: center;
+}
+#mask-upload-modal > div {
+    max-width: 420px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+#mask-maker-canvas {
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw;
+    max-height: 70vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 12px;
+    cursor: crosshair;
+    box-sizing: border-box;
+}
+.mask-maker-btns {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.mask-maker-btns button {
+    background: #0097e6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 14px 32px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.mask-maker-btns button:hover {
+    background: #005fa3;
+}
+#mask-preview {
+    max-width: 400px;
+    max-height: 300px;
+}
+#mask-maker-upload {
+    margin-top: 10px;
+}
+.mask-select-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+.mask-thumb-preview {
+    min-width: 80px;
+    text-align: center;
+    padding-bottom: 8px;
+}
+#mask-thumb-img {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background: #fafbfc;
+}
+@media (max-width: 600px) {
+    .container {
+        max-width: 100vw;
+        padding: 8px 2vw 8px 2vw;
+    }
+    h2 {
+        font-size: 1.1em;
+    }
+    .edit-mask-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        right: 8px;
+        bottom: 8px;
+    }
+    .mask-select-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+    .mask-thumb-preview {
+        min-width: 0;
+        padding-bottom: 0;
+    }
+}
+#result-section .download-btn {
+    display: inline-block;
+    margin-top: 12px;
+    background: #44bd32;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#result-section .download-btn:hover {
+    background: #218c1e;
+} 
