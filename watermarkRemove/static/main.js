@@ -1,4 +1,4 @@
-const API_BASE = 'http://47.88.2.95:8000';
+const API_BASE = 'https://47.88.2.95:8000';
 
 document.addEventListener('DOMContentLoaded', function() {
     // 1. 加载蒙版选项（下拉框+缩略图）
