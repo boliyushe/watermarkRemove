@@ -1,8 +1,10 @@
+const API_BASE = 'http://47.88.2.95:8000';
+
 document.addEventListener('DOMContentLoaded', function() {
     // 1. 加载蒙版选项（下拉框+缩略图）
     let maskTypeToThumb = {};
     let maskTypeToName = {};
-    fetch('/masks').then(r => r.json()).then(data => {
+    fetch(`${API_BASE}/masks`).then(r => r.json()).then(data => {
         const maskSelect = document.getElementById('mask-select-dropdown');
         const maskThumb = document.getElementById('mask-thumb-img');
         maskSelect.innerHTML = '';
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('low', lowFile);
             formData.append('mask_type', maskType);
 
-            fetch('/process_single', { method: 'POST', body: formData })
+            fetch(`${API_BASE}/process_single`, { method: 'POST', body: formData })
                 .then(resp => {
                     if (!resp.ok) throw new Error('处理失败');
                     // 解析 Content-Disposition 获取文件名
@@ -107,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 formData.append('high_zip', highZipBlob, 'high.zip');
                 formData.append('low_zip', lowZipBlob, 'low.zip');
                 formData.append('mask_type', maskType);
-                fetch('/process_batch', { method: 'POST', body: formData })
+                fetch(`${API_BASE}/process_batch`, { method: 'POST', body: formData })
                     .then(resp => resp.blob())
                     .then(blob => {
                         const url = URL.createObjectURL(blob);
@@ -120,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 4. 添加或调整蒙版
     document.getElementById('edit-mask-btn').onclick = function() {
         // 动态获取所有蒙版类型
-        fetch('/masks').then(r => r.json()).then(data => {
+        fetch(`${API_BASE}/masks`).then(r => r.json()).then(data => {
             const maskTypes = data.masks.map(m => ({type: m.type, name: m.name}));
             let html = '<div id="mask-upload-modal" style="position:fixed;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.3);z-index:999;display:flex;align-items:center;justify-content:center;">';
             html += '<div style="background:#fff;padding:24px 32px;border-radius:8px;min-width:340px;max-width:90vw;max-height:90vh;overflow-y:auto;">';
@@ -186,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const formData = new FormData();
                 formData.append('mask_type', type);
                 formData.append('file', file);
-                const resp = await fetch('/update_mask', { method: 'POST', body: formData });
+                const resp = await fetch(`${API_BASE}/update_mask`, { method: 'POST', body: formData });
                 if (resp.ok) {
                     alert('蒙版上传成功！');
                     document.getElementById('mask-upload-modal').remove();
@@ -358,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const formData = new FormData();
                 formData.append('mask_type', type);
                 formData.append('file', blob, 'mask.png');
-                const resp = await fetch('/update_mask', { method: 'POST', body: formData });
+                const resp = await fetch(`${API_BASE}/update_mask`, { method: 'POST', body: formData });
                 if (resp.ok) {
                     alert('蒙版上传成功！');
                     document.getElementById('mask-upload-modal').remove();
